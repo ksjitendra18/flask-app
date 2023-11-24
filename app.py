@@ -4,8 +4,12 @@ import json
 import matplotlib.pyplot as plt
 from io import BytesIO
 import base64
+from flask_cors import CORS
+
+
 
 app = Flask(__name__)
+CORS(app, resources={r"/*": {"origins": "*"}}, methods=["GET", "POST", "PUT", "PATCH", "DELETE"])
 
 # Load your data into a DataFrame (replace with your data source)
 df = pd.read_csv('sales_data.csv')
